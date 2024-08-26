@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7kevdwlj1rud"]
+
+[ext_resource type="PackedScene" uid="uid://bd8hk4tbinuf2" path="res://player/player.tscn" id="1_qxlha"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_klqsx"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1kla7"]
+points = PackedVector3Array(1.01587, 0.015873, 1.01587, -1.01587, -0.015873, -1.01587, -1.01587, 0.015873, -1.01587, 1.01587, -0.015873, -1.01587, -1.01587, -0.015873, 1.01587, -1.01587, 0.015873, 1.01587, 1.01587, 0.015873, -1.01587, 1.01587, -0.015873, 1.01587)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c2eox"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gep6j"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[node name="Prototype" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("PlaneMesh_klqsx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_1kla7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.900683, 0.434477, 0, -0.434477, 0.900683, 0, 2.69042, 0)
+
+[node name="References" type="Node" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="References"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.53608, 0.5, -3.92127)
+mesh = SubResource("BoxMesh_c2eox")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="References/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="References/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_gep6j")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="References"]
+transform = Transform3D(0.586025, 0, 0, 0, 1.00059, 0, 0, 0, 5.22271, 7.95367, 0.5, -6.58172)
+mesh = SubResource("BoxMesh_c2eox")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="References/MeshInstance3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="References/MeshInstance3D3/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_gep6j")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="References"]
+transform = Transform3D(2.37427, 0, 0, 0, 0.570882, 0, 0, 0, 2.06912, -4.11546, 0.5, 5.78375)
+mesh = SubResource("BoxMesh_c2eox")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="References/MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="References/MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_gep6j")
+
+[node name="Player" parent="." instance=ExtResource("1_qxlha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.201, 1, 0.608)
+metadata/_edit_lock_ = true
