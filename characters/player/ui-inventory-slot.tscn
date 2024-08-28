@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2jgslv2svjaf"]
+
+[ext_resource type="Script" path="res://characters/player/inventory_slot.gd" id="1_xb71o"]
+
+[node name="InventorySlot" type="PanelContainer"]
+custom_minimum_size = Vector2(50, 50)
+script = ExtResource("1_xb71o")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+expand_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8

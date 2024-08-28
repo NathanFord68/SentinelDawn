@@ -23,14 +23,26 @@ extends CharacterBody3D
 ## How far down can the player look, 0 deg is ground plane
 @export var min_pitch_angle := -45.0
 
+@onready var inventory: InventoryManager = $Inventory
+
+var is_camera_disabled = false
+
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and not is_camera_disabled:
 		rotate_camera(event.velocity)
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("Inventory"):
+		$Inventory.visible = !$Inventory.visible
+		Input.mouse_mode = Input.MOUSE_MODE_CONFINED if $Inventory.visible else Input.MOUSE_MODE_CAPTURED
+		is_camera_disabled = $Inventory.visible
+	
+	if Input.is_action_just_pressed("Interact"):
+		interact()
+	
 	var _movement_speed = sprint_speed if Input.is_action_pressed("Sprint") else speed
 	# Add the gravity.
 	if not is_on_floor():
@@ -39,7 +51,6 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = jump_velocity
-
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -62,3 +73,20 @@ func rotate_camera(velocity: Vector2) -> void:
 	
 	$Camera3D.rotation.x = clamp($Camera3D.rotation.x, deg_to_rad(min_pitch_angle), deg_to_rad(max_pitch_angle))
 	
+
+func interact() -> void:
+	var space := get_world_3d().direct_space_state
+	
+	# Get the forward vector from the center of the screen
+	var from = $Camera3D.project_ray_origin(get_viewport().size / 2)
+	var to = $Camera3D.project_ray_normal(get_viewport().size / 2 ) * 100
+	# Create the query
+	var query := PhysicsRayQueryParameters3D.create(from, to)
+	query.exclude = [self]
+	
+	# Cast the query
+	var hit = space.intersect_ray(query)
+	
+	# Get the result and handle it's interaction method
+	if hit.collider.has_method("on_interact"):
+		hit.collider.call("on_interact", self)

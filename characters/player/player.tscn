@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd8hk4tbinuf2"]
+
+[ext_resource type="Script" path="res://characters/controller.gd" id="2_aa4yh"]
+[ext_resource type="PackedScene" uid="uid://xrdvhuuqpbdf" path="res://characters/player/ui-inventory.tscn" id="2_v67eh"]
+[ext_resource type="PackedScene" uid="uid://l4trtyx6v8gh" path="res://characters/player/ui-HUD.tscn" id="3_e06xy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cdik0"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("2_aa4yh")
+min_pitch_angle = -80.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_cdik0")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.90508, -0.425242, 0, 0.425242, 0.90508, 0, 0.650141, 0)
+
+[node name="HUD" parent="." instance=ExtResource("3_e06xy")]
+
+[node name="Inventory" parent="." instance=ExtResource("2_v67eh")]
+visible = false
+z_index = 100

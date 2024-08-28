@@ -1,0 +1,144 @@
+[gd_scene load_steps=3 format=3 uid="uid://xrdvhuuqpbdf"]
+
+[ext_resource type="Script" path="res://characters/player/inventory_manager.gd" id="1_cdaav"]
+[ext_resource type="PackedScene" uid="uid://c2jgslv2svjaf" path="res://characters/player/ui-inventory-slot.tscn" id="1_r8lu2"]
+
+[node name="InventoryMenu" type="SubViewportContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+script = ExtResource("1_cdaav")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 1.0
+offset_right = 22.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SubViewport/MarginContainer"]
+layout_mode = 2
+
+[node name="InventoryMarginContainer" type="MarginContainer" parent="SubViewport/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 10
+
+[node name="Inventory" type="GridContainer" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer"]
+layout_mode = 2
+columns = 10
+
+[node name="Ui-inventory-slot" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot2" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot3" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot4" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot5" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot6" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot7" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot8" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot9" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot10" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot11" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot12" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot13" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot14" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot15" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot16" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot17" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot18" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot19" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot20" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot21" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot22" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot23" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot24" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot25" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot26" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot27" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot28" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot29" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="Ui-inventory-slot30" parent="SubViewport/MarginContainer/HBoxContainer/InventoryMarginContainer/Inventory" instance=ExtResource("1_r8lu2")]
+layout_mode = 2
+
+[node name="EquipmentMarginContainer" type="MarginContainer" parent="SubViewport/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+
+[node name="Panel" type="Panel" parent="SubViewport/MarginContainer/HBoxContainer/EquipmentMarginContainer"]
+layout_mode = 2
